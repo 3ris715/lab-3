@@ -14,7 +14,9 @@ def prompt_for_image():
         print("Select a name from the following list:")
         for i in range(len(results)):
             print("{}. {}".format(i+1, results[i]))
-        number = input("Enter the number of the desired name: ")
+        number = int(input("Enter the number of the desired name: "))
+        url = get_wikipedia_thumbnail_url(results[number])
+        print("({})".format(url))
     except Exception as e:
         print(f"Error: Unable to find image for the given name: {e}")
         return None, None
