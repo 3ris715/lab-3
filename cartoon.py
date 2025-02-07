@@ -15,12 +15,12 @@ def prompt_for_image():
         for i in range(len(results)):
             print("{}. {}".format(i+1, results[i]))
         number = int(input("Enter the number of the desired name: "))
-        url = get_wikipedia_thumbnail_url(results[number])
+        url = get_wikipedia_page_thumbnail_url(results[number-1])
         print("({})".format(url))
     except Exception as e:
         print(f"Error: Unable to find image for the given name: {e}")
         return None, None
-    return results, number
+    return url
     
 def convert_image_to_cartoon(image_path):
     """
